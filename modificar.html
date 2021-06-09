@@ -1,0 +1,77 @@
+<!DICTYPE html>
+<html>
+<head>
+<title>Patitos</title>
+<link rel="stylesheet" type="text/css" href="CSS/estilos modificar.css">
+<meta charset="UTF-8">
+<?php
+session_start();
+?>
+<!--Código en JavaScript-->
+<script type= "text/javaScript">
+//Función que valida los datos ingresados en el formulario
+function validarCliente(){
+//Variable que contiene el formulario y se le agrega un EventListener
+var modif = document.getElementById("modificarfrm")
+modif.addEventListener("submit", e=>{
+//variables para obtener los valores ingresados en el formulario
+var idvalidado = document.getElementById('idcliente').value.length
+var nombrevalidado = document.getElementById('nombrecliente').value.length
+var telvalidado = document.getElementById('telcliente').value.length
+//Condicionales para evaluar los datos ingresados en cada campo
+if(idvalidado <= 2){
+//Si el ID no es válido se previene el envío de datos y se muestra una alerta
+alert('Ingrese un ID válido')
+e.preventDefault()
+} else if(nombrevalidado < 5){
+alert('Ingrese un nombre válido')
+e.preventDefault()
+}else if(telvalidado < 10){
+alert('Ingrese el teléfono correcto')
+e.preventDefault()
+}
+})
+}
+</script>
+</head>
+<body>
+	<header>
+	<!-- Encabezado y menús -->
+	<h1>Patitos S.A. de C.V.</h1>
+			<ul class="menu">
+				<li><a href="index2.html">Inicio<a/></li>
+				<li><a href="crear.html">Inventario<a/></li>
+				<li><a href="consultar.html">Consultar<a/></li>
+				<li><a href="modificar.html">Clientes<a/></li>
+				<li><a href="empleados.html">Empleados<a/></li>
+				<li><a href="http://localhost/Patitos/cerrarsesion.php">Cerrar Sesión<a/></li>
+			</ul>
+	</header>
+	<!-- Componentes del formulario -->
+		<section class="main">
+			<h2><b>Clientes</b></h2>
+			<form id="modificarfrm">
+			<label for ="idcliente">ID</label>
+			<input type="number" id="idcliente" name="idcliente" min= "0" max= "99999"/><br>
+			<label for ="nombrecliente">Nombre</label>
+			<input type="text" id="nombrecliente" name="nombrecliente"/><br>
+			<label for ="telcliente">Teléfono</label>
+			<input type="number" id="telcliente" name="telcliente"><br><br>
+			<section class="button">
+			<input type="submit" onclick="validarCliente()" value="Aceptar">
+			</section>
+			</form>
+		</section>
+		<aside>
+		<!-- Menú lateral con imágenes -->
+			<img src="Imágenes/Patito.png" alt="Patitos" width="260" height="180">
+			<h3>Contáctanos</h3>
+			<div class="redes">
+			<img src="Imágenes/Fb.png" alt="Facebook" width="50" height="50">
+			<img src="Imágenes/Twitter.png" alt="Twitter" width="50" height="50">
+			<img src="Imágenes/Instagram.png" alt="Instagram" width="50" height="50">
+			<img src="Imágenes/Gmail.png" alt="Gmail" width="50" height="50">
+			</div>
+		</aside>
+</body>
+</html>

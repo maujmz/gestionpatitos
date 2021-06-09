@@ -1,0 +1,70 @@
+<!DICTYPE html>
+<html>
+<head>
+<title>Patitos</title>
+<link rel="stylesheet" type="text/css" href="CSS/estilos consultar.css">
+<meta charset="UTF-8">
+<?php
+session_start();
+?>
+<!--Código en JavaScript-->
+<script type= "text/javaScript">
+//Función que valida los datos ingresados en el formulario
+function validar(){
+//Variable que contiene el formulario y se le agrega un EventListener
+var cons = document.getElementById("consultar")
+cons.addEventListener("submit", e=>{
+//variable para obtener el tamaño del valor ingresado en el campo ID
+var validado = document.getElementById('idconsultar').value.length
+//Condicional If valida que el ID ingresado tenga al menos 3 dígitos
+if(validado <= 2){
+//Si el ID no es válido se previene el envío de datos y se muestra una alerta
+e.preventDefault()
+alert('Ingrese un número válido')
+}
+})
+}
+function conectar(){
+
+}
+
+</script>
+</head>
+<body>
+	<?php include 'conexion.php'; ?>
+	<header>
+	<!--Se incluye el título y los menús en el encabezado-->
+	<h1>Patitos S.A. de C.V.</h1>
+			<ul class="menu">
+				<li><a href="index2.html">Inicio<a/></li>
+				<li><a href="crear.html">Inventario<a/></li>
+				<li><a href="consultar.html">Consultar<a/></li>
+				<li><a href="modificar.html">Clientes<a/></li>
+				<li><a href="empleados.html">Empleados<a/></li>
+				<li><a href="http://localhost/Patitos/cerrarsesion.php">Cerrar Sesión<a/></li>
+			</ul>
+	</header>
+	<!--Se crean los componentes del formulario-->
+		<section class="main">
+			<h2><b>Consultar registro</b></h2>
+			<form id ="consultar" action="http://localhost/Patitos/conexion.php" method="post">
+			<label for ="idconsultar">ID</label>
+			<input type="number" id="idconsultar" name="idconsultar" min= "0" max= "99999"><br><br>
+			<section class="button">
+			<input type="submit" id="consultarbtn" onclick="validar()" value="Consultar">
+			</section>
+			</form>
+		</section>
+		<aside>
+		<!--Se agrega el side menu con imágenes-->
+			<img src="Imágenes/Patito.png" alt="Patitos" width="260" height="180">
+			<h3>Contáctanos</h3>
+			<div class="redes">
+			<img src="Imágenes/Fb.png" alt="Facebook" width="50" height="50">
+			<img src="Imágenes/Twitter.png" alt="Twitter" width="50" height="50">
+			<img src="Imágenes/Instagram.png" alt="Instagram" width="50" height="50">
+			<img src="Imágenes/Gmail.png" alt="Gmail" width="50" height="50">
+			</div>
+		</aside>
+</body>
+</html>
