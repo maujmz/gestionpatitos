@@ -10,7 +10,7 @@ session_start();
 
 <body>
 
-<form method="post" action="http://localhost/Patitos/validar.php" name="login">
+<form method="post" action="validar.php" name="login">
 <div class="Iniciosesion">
 <label>Usuario</label>
 <input type="text" name="usuario" required/><br><br>
